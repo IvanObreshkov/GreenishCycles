@@ -10,6 +10,12 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -21,24 +27,43 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
     private FusedLocationProviderClient fusedLocationClient;
+    private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
+        drawerLayout = findViewById(R.id.drawer_layout);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
@@ -61,7 +86,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void setUpMapIfNeeded() {
 
-        mMap.addMarker(new MarkerOptions().position(new LatLng(43.2221994, 23.5502362)).title("Колело 1"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(43.2221994, 23.5502362)).title("Дъбника"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(43.204783,23.544943)).title("Подбалканска"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(43.201670,23.567083)).title("Стадион"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(43.192414,23.575709)).title("Източна промишлена зона"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(43.2359977,23.5684522)).title("Студентски град"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(43.234016,23.526140)).title("Кулата"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(43.2317716,23.5131729)).title("Аквапарк"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(43.208300,23.557340)).title("ЖП гара"));
 
 
     }
@@ -117,4 +149,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         }
     }
+
+
+
 }

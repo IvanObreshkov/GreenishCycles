@@ -1,0 +1,15 @@
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<group android:checkableBehavior="single">
+    <item
+        android:id="@+id/Code"
+        android:icon="@drawable/ic_26053"
+        android:title="Unlocking code"/>
+
+    <item
+        android:id="@+id/About"
+        android:icon="@drawable/ic_download"
+        android:title="About"/>
+
+</group>
+</menu>
