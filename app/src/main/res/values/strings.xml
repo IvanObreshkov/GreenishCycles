@@ -1,0 +1,6 @@
+<resources>
+    <string name="google_maps_API_key">AIzaSyBoJ769dvUEral71dE3A9iVhchgYST2cso</string>
+
+    <string name="app_name">GreenishCyclingApp</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
