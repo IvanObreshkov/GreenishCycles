@@ -3,7 +3,7 @@
 
     <string name="app_name">GreenishCyclingApp</string>
     <string name="title_activity_maps">Map</string>
-    <string name="this_is_our_first_green_program">Hello! We are ThinkGreen. This is a software development team of two 15 years old boys from Ruse, Bulgaria. This is our first mobile application. It makes cycling funny and affordable, so hire a bike and have a nice ride! </string>
+    <string name="this_is_our_first_green_program">Hello! We are ThinkGreen. This is a software development team of two 15 years old boys from Ruse, Bulgaria. This is our first mobile application. It makes cycling fun and affordable, so hire a bike and have a nice ride! </string>
     <string name="ok">OK</string>
     <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
     <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
