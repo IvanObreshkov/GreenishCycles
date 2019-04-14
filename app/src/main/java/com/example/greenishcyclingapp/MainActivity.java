@@ -3,10 +3,12 @@ package com.example.greenishcyclingapp;
 import android.app.Dialog;
 import android.content.Intent;
 import android.nfc.Tag;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DialogTitle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -23,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-            init();
+        init();
     }
+
     private void init(){
         Button btnMap = (Button) findViewById(R.id.btnMap);
         btnMap.setOnClickListener(new View.OnClickListener() {
@@ -61,8 +63,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
-
-
-
 
 }
